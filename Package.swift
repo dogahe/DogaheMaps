@@ -19,7 +19,7 @@ let package = Package(
       dependencies: ["GoogleMaps"],
       path: "GoogleMaps",
       sources: ["dummy.m"],
-      resources: [.copy("Resources/GoogleMapsResources")],
+      resources: [.copy("Resources/GoogleMapsResources/GoogleMaps.bundle")],
       publicHeadersPath: "Sources"
     ),
     .binaryTarget(
