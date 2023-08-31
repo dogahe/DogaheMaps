@@ -17,7 +17,7 @@ let package = Package(
     .target(
       name: "GoogleMapsTarget",
       dependencies: ["GoogleMaps"],
-      path: "GoogleMaps",
+      path: "Maps",
       sources: ["dummy.m"],
       resources: [.copy("Resources/GoogleMapsResources/GoogleMaps.bundle")],
       publicHeadersPath: "Sources"
@@ -29,7 +29,7 @@ let package = Package(
     .target(
       name: "GoogleMapsCoreTarget",
       dependencies: ["GoogleMapsCore"],
-      path: "GoogleMapsCore",
+      path: "Core",
       sources: ["dummy.m"],
       publicHeadersPath: "Sources"
     ),
@@ -40,7 +40,7 @@ let package = Package(
     .target(
       name: "GoogleMapsBaseTarget",
       dependencies: ["GoogleMapsBase"],
-      path: "GoogleMapsBase",
+      path: "Base",
       sources: ["dummy.m"],
       publicHeadersPath: "Sources"
     ),
