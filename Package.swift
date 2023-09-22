@@ -8,6 +8,7 @@ let package = Package(
     .library(name: "GoogleMaps", targets: ["GoogleMapsTarget"]),
     .library(name: "GoogleMapsCore", targets: ["GoogleMapsCoreTarget"]),
     .library(name: "GoogleMapsBase", targets: ["GoogleMapsBaseTarget"]),
+    .library(name: "GoogleMapsM4B", targets: ["GoogleMapsM4BTarget"]),
   ], dependencies: [],
   targets: [
     .binaryTarget(
@@ -41,6 +42,17 @@ let package = Package(
       name: "GoogleMapsBaseTarget",
       dependencies: ["GoogleMapsBase"],
       path: "Base",
+      sources: ["dummy.m"],
+      publicHeadersPath: "Sources"
+    ),
+    .binaryTarget(
+      name: "GoogleMapsM4B", url: "https://github.com/dogahe/DogaheMaps/releases/download/1.0.10/GoogleMapsM4B_3p.xcframework.zip",
+      checksum: "26b92a9e5872f4e6375528fd4b7aa7a8c164a94a31e86e3eca51932cd52be790"
+    ),
+    .target(
+      name: "GoogleMapsM4BTarget",
+      dependencies: ["GoogleMapsM4B"],
+      path: "M4B",
       sources: ["dummy.m"],
       publicHeadersPath: "Sources"
     ),
