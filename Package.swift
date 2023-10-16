@@ -21,7 +21,25 @@ let package = Package(
       path: "Maps",
       sources: ["dummy.m"],
       resources: [.copy("Resources/GoogleMapsResources/GoogleMaps.bundle")],
-      publicHeadersPath: "Sources"
+      publicHeadersPath: "Sources",
+      linkerSettings: [
+        .linkedLibrary("z"),
+        .linkedLibrary("c++"),
+        .linkedFramework("Accelerate"),
+        .linkedFramework("CoreData"),
+        .linkedFramework("CoreGraphics"),
+        .linkedFramework("CoreImage"),
+        .linkedFramework("CoreLocation"),
+        .linkedFramework("CoreTelephony"),
+        .linkedFramework("CoreText"),
+        .linkedFramework("GLKit"),
+        .linkedFramework("ImageIO"),
+        .linkedFramework("Metal"),
+        .linkedFramework("OpenGLES"),
+        .linkedFramework("QuartzCore"),
+        .linkedFramework("SystemConfiguration"),
+        .linkedFramework("UIKit"),
+      ]
     ),
     .binaryTarget(
       name: "GoogleMapsCore", url: "https://github.com/dogahe/DogaheMaps/releases/download/1.0.10/GoogleMapsCore_3p.xcframework.zip",
