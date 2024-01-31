@@ -17,7 +17,7 @@ let package = Package(
     ),
     .target(
       name: "GoogleMapsTarget",
-      dependencies: ["GoogleMaps", "GoogleMapsBaseTarget"],
+      dependencies: ["GoogleMaps"],
       path: "Maps",
       sources: ["dummy.m"],
       resources: [.copy("Resources/GoogleMapsResources/GoogleMaps.bundle")],
@@ -55,6 +55,8 @@ let package = Package(
       sources: ["dummy.m"],
       publicHeadersPath: "Sources",
       linkerSettings: [
+        .linkedLibrary("z"),
+        .linkedLibrary("c++"),
         .linkedFramework("Contacts"),
         .linkedFramework("CoreData"),
         .linkedFramework("CoreGraphics"),
