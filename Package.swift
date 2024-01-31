@@ -23,22 +23,14 @@ let package = Package(
       resources: [.copy("Resources/GoogleMapsResources/GoogleMaps.bundle")],
       publicHeadersPath: "Sources",
       linkerSettings: [
-        .linkedLibrary("z"),
-        .linkedLibrary("c++"),
         .linkedFramework("Accelerate"),
-        .linkedFramework("CoreData"),
-        .linkedFramework("CoreGraphics"),
         .linkedFramework("CoreImage"),
-        .linkedFramework("CoreLocation"),
-        .linkedFramework("CoreTelephony"),
         .linkedFramework("CoreText"),
         .linkedFramework("GLKit"),
         .linkedFramework("ImageIO"),
         .linkedFramework("Metal"),
         .linkedFramework("OpenGLES"),
         .linkedFramework("QuartzCore"),
-        .linkedFramework("SystemConfiguration"),
-        .linkedFramework("UIKit"),
       ]
     ),
     .binaryTarget(
@@ -61,7 +53,17 @@ let package = Package(
       dependencies: ["GoogleMapsBase"],
       path: "Base",
       sources: ["dummy.m"],
-      publicHeadersPath: "Sources"
+      publicHeadersPath: "Sources",
+      linkerSettings: [
+        .linkedFramework("Contacts"),
+        .linkedFramework("CoreData"),
+        .linkedFramework("CoreGraphics"),
+        .linkedFramework("CoreLocation"),
+        .linkedFramework("CoreTelephony"),
+        .linkedFramework("QuartzCore"),
+        .linkedFramework("SystemConfiguration"),
+        .linkedFramework("UIKit"),
+      ]
     ),
     .binaryTarget(
       name: "GoogleMapsM4B", url: "https://dl.google.com/geosdk/swiftpm/8.3.0/GoogleMapsM4B_3p.xcframework.zip",
