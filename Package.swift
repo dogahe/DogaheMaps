@@ -6,6 +6,7 @@ let package = Package(
   name: "GoogleMaps", platforms: [.iOS(.v14)],
   products: [
     .library(name: "GoogleMaps", targets: ["GoogleMapsTarget"]),
+    .library(name: "GoogleMapsM4B", targets: ["GoogleMapsM4BTarget"]),
   ], dependencies: [],
   targets: [
     .binaryTarget(
@@ -14,7 +15,7 @@ let package = Package(
     ),
     .target(
       name: "GoogleMapsTarget",
-      dependencies: ["GoogleMaps", "GoogleMapsCoreTarget", "GoogleMapsBaseTarget", "GoogleMapsM4BTarget"],
+      dependencies: ["GoogleMaps", "GoogleMapsCoreTarget", "GoogleMapsBaseTarget"],
       path: "Maps",
       sources: ["dummy.m"],
       resources: [.copy("Resources/GoogleMapsResources/GoogleMaps.bundle")],
