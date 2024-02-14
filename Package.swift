@@ -6,9 +6,6 @@ let package = Package(
   name: "GoogleMaps", platforms: [.iOS(.v14)],
   products: [
     .library(name: "GoogleMaps", targets: ["GoogleMapsTarget"]),
-    .library(name: "GoogleMapsCore", targets: ["GoogleMapsCoreTarget"]),
-    .library(name: "GoogleMapsBase", targets: ["GoogleMapsBaseTarget"]),
-    .library(name: "GoogleMapsM4B", targets: ["GoogleMapsM4BTarget"]),
   ], dependencies: [],
   targets: [
     .binaryTarget(
