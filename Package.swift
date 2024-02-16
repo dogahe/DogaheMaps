@@ -92,3 +92,10 @@ let package = Package(
     .binaryTarget(name: "GooglePlaces", url: "https://dl.google.com/geosdk/swiftpm/8.3.0/GooglePlaces_3p.xcframework.zip", checksum: "fc5539677cdf6c0ce32f04af6f347abdc918f49c5b84a60d6ea90eef058b2ef3"),
   ]
 )
+
+// Mark the deprecated product as deprecated
+@available(*, deprecated, message: "Package Product GooglePlaces is deprecated and will be removed in the future. Please use alternatives.")
+let DeprecatedProductName: Target = .target(
+    name: "GooglePlacesTarget",
+    dependencies: []
+)
