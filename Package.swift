@@ -23,7 +23,7 @@ let package = Package(
     .library(name: "GoogleMaps", targets: ["GoogleMapsTarget"]),
     .library(name: "GoogleMapsM4B", targets: ["GoogleMapsM4BTarget"]),
     .library(
-          name: "GooglePlaces",
+          name: "PL",
           targets: ["GooglePlacesTarget"]),
   ], dependencies: [],
   targets: [
