@@ -2,6 +2,21 @@
 
 import PackageDescription
 
+@available(*, deprecated, message: "GooglePlacesTarget is deprecated and will be removed in the future. Please use alternatives.")
+let GooglePlacesTarget: Target = .target(
+  name: "GooglePlacesTarget",
+  dependencies: ["GooglePlaces"],
+  path: "GooglePlaces",
+  sources: ["dummy.m"],
+  resources: [
+    .copy("Resources/GooglePlaces.bundle")
+  ],
+  publicHeadersPath: "Sources"
+)
+
+@available(*, deprecated, message: "GooglePlaces is deprecated and will be removed in the future. Please use alternatives.")
+let GooglePlaces: Target = .binaryTarget(name: "GooglePlaces", url: "https://dl.google.com/geosdk/swiftpm/8.3.0/GooglePlaces_3p.xcframework.zip", checksum: "fc5539677cdf6c0ce32f04af6f347abdc918f49c5b84a60d6ea90eef058b2ef3")
+
 let package = Package(
   name: "GoogleMaps", platforms: [.iOS(.v14)],
   products: [
@@ -12,6 +27,8 @@ let package = Package(
           targets: ["GooglePlacesTarget"]),
   ], dependencies: [],
   targets: [
+    GooglePlacesTarget,
+    GooglePlaces,
     .binaryTarget(
       name: "GoogleMaps", url: "https://dl.google.com/geosdk/swiftpm/8.3.0/GoogleMaps_3p.xcframework.zip",
       checksum: "4d9b8a4836d52eb7ef6257968853a9949b02cde299a05fe7389efab54c59128c"
@@ -79,23 +96,36 @@ let package = Package(
       sources: ["dummy.m"],
       publicHeadersPath: "Sources"
     ),
-    .target(
-          name: "GooglePlacesTarget",
-          dependencies: ["GooglePlaces"],
-          path: "GooglePlaces",
-          sources: ["dummy.m"],
-          resources: [
-            .copy("Resources/GooglePlaces.bundle")
-          ],
-          publicHeadersPath: "Sources"
-        ),
-    .binaryTarget(name: "GooglePlaces", url: "https://dl.google.com/geosdk/swiftpm/8.3.0/GooglePlaces_3p.xcframework.zip", checksum: "fc5539677cdf6c0ce32f04af6f347abdc918f49c5b84a60d6ea90eef058b2ef3"),
+//    .target(
+//              name: "GooglePlacesTarget",
+//              dependencies: ["GooglePlaces"],
+//              path: "GooglePlaces",
+//              sources: ["dummy.m"],
+//              resources: [
+//                .copy("Resources/GooglePlaces.bundle")
+//              ],
+//              publicHeadersPath: "Sources"
+//            ),
+//        .binaryTarget(name: "GooglePlaces", url: "https://dl.google.com/geosdk/swiftpm/8.3.0/GooglePlaces_3p.xcframework.zip", checksum: "fc5539677cdf6c0ce32f04af6f347abdc918f49c5b84a60d6ea90eef058b2ef3"),
   ]
 )
 
 // Mark the deprecated product as deprecated
+/*
 @available(*, deprecated, message: "Package Product GooglePlaces is deprecated and will be removed in the future. Please use alternatives.")
-let DeprecatedProductName: Target = .target(
-    name: "GooglePlacesTarget",
-    dependencies: []
+let GooglePlacesTarget: Target = .target(
+  name: "GooglePlacesTarget",
+  dependencies: ["GooglePlaces"],
+  path: "GooglePlaces",
+  sources: ["dummy.m"],
+  resources: [
+    .copy("Resources/GooglePlaces.bundle")
+  ],
+  publicHeadersPath: "Sources"
 )
+
+let GooglePlaces: Target = .binaryTarget(name: "GooglePlaces", url: "https://dl.google.com/geosdk/swiftpm/8.3.0/GooglePlaces_3p.xcframework.zip", checksum: "fc5539677cdf6c0ce32f04af6f347abdc918f49c5b84a60d6ea90eef058b2ef3")
+*/
+
+
+
