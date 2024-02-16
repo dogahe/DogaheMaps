@@ -7,6 +7,9 @@ let package = Package(
   products: [
     .library(name: "GoogleMaps", targets: ["GoogleMapsTarget"]),
     .library(name: "GoogleMapsM4B", targets: ["GoogleMapsM4BTarget"]),
+    .library(
+          name: "GooglePlaces",
+          targets: ["GooglePlacesTarget"]),
   ], dependencies: [],
   targets: [
     .binaryTarget(
@@ -76,5 +79,16 @@ let package = Package(
       sources: ["dummy.m"],
       publicHeadersPath: "Sources"
     ),
+    .target(
+          name: "GooglePlacesTarget",
+          dependencies: ["GooglePlaces"],
+          path: "GooglePlaces",
+          sources: ["dummy.m"],
+          resources: [
+            .copy("Resources/GooglePlaces.bundle")
+          ],
+          publicHeadersPath: "Sources"
+        ),
+    .binaryTarget(name: "GooglePlaces", url: "https://dl.google.com/geosdk/swiftpm/8.3.0/GooglePlaces_3p.xcframework.zip", checksum: "fc5539677cdf6c0ce32f04af6f347abdc918f49c5b84a60d6ea90eef058b2ef3"),
   ]
 )
