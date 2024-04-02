@@ -5,7 +5,7 @@ import PackageDescription
 let package = Package(
   name: "GoogleMaps", platforms: [.iOS(.v14)],
   products: [
-    .library(name: "GoogleMaps", targets: ["GoogleMapsTarget"]),
+    .library(name: "GoogleMaps", targets: ["Maps"]),
   ], dependencies: [],
   targets: [
     .binaryTarget(
@@ -13,7 +13,7 @@ let package = Package(
       checksum: "4d9b8a4836d52eb7ef6257968853a9949b02cde299a05fe7389efab54c59128c"
     ),
     .target(
-      name: "GoogleMapsTarget",
+      name: "Maps",
       dependencies: ["GoogleMaps", "Core", "Base"],
       path: "Maps",
       sources: ["dummy.m"],
