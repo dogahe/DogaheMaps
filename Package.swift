@@ -14,7 +14,7 @@ let package = Package(
     ),
     .target(
       name: "GoogleMapsTarget",
-      dependencies: ["GoogleMaps", "GoogleMapsCoreTarget", "GoogleMapsBaseTarget"],
+      dependencies: ["GoogleMaps", "Core", "Base"],
       path: "Maps",
       sources: ["dummy.m"],
       resources: [.copy("Resources/GoogleMapsResources/GoogleMaps.bundle")],
@@ -35,7 +35,7 @@ let package = Package(
       checksum: "833bdd8b455bddb54f02330ea8339a47003403293392ad37059e7cd6e59c283c"
     ),
     .target(
-      name: "GoogleMapsCoreTarget",
+      name: "Core",
       dependencies: ["GoogleMapsCore"],
       path: "Core",
       sources: ["dummy.m"],
@@ -46,7 +46,7 @@ let package = Package(
       checksum: "5d0b7a00385bfaddbe9acb39762e5e62644ca98f7cc6dcaaaf3737d2a0084854"
     ),
     .target(
-      name: "GoogleMapsBaseTarget",
+      name: "Base",
       dependencies: ["GoogleMapsBase"],
       path: "Base",
       sources: ["dummy.m"],
