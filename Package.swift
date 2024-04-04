@@ -36,7 +36,10 @@ let package = Package(
       dependencies: ["GoogleMaps"],
       path: "Maps",
       sources: ["GMSEmpty.m"],
-      resources: [.copy("Resources/GoogleMapsResources/GoogleMaps.bundle")],
+      resources: [
+        .copy("Resources/GoogleMapsResources/GoogleMaps.bundle"),
+        .copy("Resources/PrivacyInfo.xcprivacy")
+      ],
       publicHeadersPath: "Sources",
       linkerSettings: [
         .linkedLibrary("z"),
