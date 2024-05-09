@@ -21,10 +21,7 @@ import PackageDescription
 let package = Package(
   name: "GoogleMaps", platforms: [.iOS(.v14)],
   products: [
-    .library(name: "GoogleMaps", targets: ["GoogleMapsTarget"]),
-    .library(name: "GoogleMapsCore", targets: ["GoogleMapsCoreTarget"]),
-    .library(name: "GoogleMapsBase", targets: ["GoogleMapsBaseTarget"]),
-    .library(name: "GoogleMapsM4B", targets: ["GoogleMapsM4BTarget"]),
+    .library(name: "GoogleMaps", targets: ["Maps"]),
   ], dependencies: [],
   targets: [
     .binaryTarget(
@@ -32,8 +29,8 @@ let package = Package(
       checksum: "65f78e9e4e75be666f26584836791fe5685a43b19d847fe5246d4aeb7146d113"
     ),
     .target(
-      name: "GoogleMapsTarget",
-      dependencies: ["GoogleMaps"],
+      name: "Maps",
+      dependencies: ["GoogleMaps", "Core", "Base"],
       path: "Maps",
       sources: ["GMSEmpty.m"],
       resources: [
@@ -65,7 +62,7 @@ let package = Package(
       checksum: "c7879ccd3cb20d37816cfbb833adb4965d3fd32253f57b1cf2edc0542611ce70"
     ),
     .target(
-      name: "GoogleMapsCoreTarget",
+      name: "Core",
       dependencies: ["GoogleMapsCore"],
       path: "Core",
       sources: ["GMSEmpty.m"],
@@ -76,20 +73,9 @@ let package = Package(
       checksum: "d308fb16e60c6d25b221d485fc1695badceaf8c75069179c75c05614a47cc052"
     ),
     .target(
-      name: "GoogleMapsBaseTarget",
+      name: "Base",
       dependencies: ["GoogleMapsBase"],
       path: "Base",
-      sources: ["GMSEmpty.m"],
-      publicHeadersPath: "Sources"
-    ),
-    .binaryTarget(
-      name: "GoogleMapsM4B", url: "https://dl.google.com/geosdk/swiftpm/8.4.0/GoogleMapsM4B_3p.xcframework.zip",
-      checksum: "23665f11fdd498a31fb081d914179e19f2eebdd0366e492f077381748cac21be"
-    ),
-    .target(
-      name: "GoogleMapsM4BTarget",
-      dependencies: ["GoogleMapsM4B"],
-      path: "M4B",
       sources: ["GMSEmpty.m"],
       publicHeadersPath: "Sources"
     ),
