@@ -15,14 +15,24 @@ let package = Package(
       name: "GoogleMapsTarget",
       dependencies: [
         "GoogleMaps",
-        "GoogleMapsBaseTarget",
-        "GoogleMapsCoreTarget",
+        "GoogleMapsBase",
+        "GoogleMapsCore",
       ],
       path: "Maps",
       sources: ["GMSEmpty.m"],
       resources: [.copy("Resources/GoogleMapsResources/GoogleMaps.bundle")],
       publicHeadersPath: "Sources",
       linkerSettings: [
+        .linkedLibrary("c++"),
+        .linkedLibrary("z"),
+        .linkedFramework("Contacts"),
+        .linkedFramework("CoreData"),
+        .linkedFramework("CoreGraphics"),
+        .linkedFramework("CoreLocation"),
+        .linkedFramework("CoreTelephony"),
+        .linkedFramework("QuartzCore"),
+        .linkedFramework("SystemConfiguration"),
+        .linkedFramework("UIKit"),
         .linkedFramework("Accelerate"),
         .linkedFramework("CoreImage"),
         .linkedFramework("CoreText"),
@@ -38,36 +48,10 @@ let package = Package(
       url: "https://dl.google.com/geosdk/swiftpm/9.0.0/GoogleMapsCore_3p.xcframework.zip",
       checksum: "290f4002db479331d18fb9233e3015a1eb0d9abc16a765648e60590f34b0d691"
     ),
-    .target(
-      name: "GoogleMapsCoreTarget",
-      dependencies: ["GoogleMapsCore"],
-      path: "Core",
-      sources: ["GMSEmpty.m"],
-      publicHeadersPath: "Sources"
-    ),
     .binaryTarget(
       name: "GoogleMapsBase",
       url: "https://dl.google.com/geosdk/swiftpm/9.0.0/GoogleMapsBase_3p.xcframework.zip",
       checksum: "de00cb1d8557ee90a2fa7dd73060d74ddaf28d6d137082d6df147535b5eb4a01"
-    ),
-    .target(
-      name: "GoogleMapsBaseTarget",
-      dependencies: ["GoogleMapsBase"],
-      path: "Base",
-      sources: ["GMSEmpty.m"],
-      publicHeadersPath: "Sources",
-      linkerSettings: [
-        .linkedLibrary("c++"),
-        .linkedLibrary("z"),
-        .linkedFramework("Contacts"),
-        .linkedFramework("CoreData"),
-        .linkedFramework("CoreGraphics"),
-        .linkedFramework("CoreLocation"),
-        .linkedFramework("CoreTelephony"),
-        .linkedFramework("QuartzCore"),
-        .linkedFramework("SystemConfiguration"),
-        .linkedFramework("UIKit"),
-      ]
     ),
   ]
 )
